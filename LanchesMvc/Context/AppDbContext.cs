@@ -1,0 +1,21 @@
+﻿using LanchesMvc.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace LanchesMvc.Context
+{
+    public class AppDbContext : IdentityDbContext<IdentityUser>
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options ) : base(options)
+        {
+        }
+
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Lanches> Lanches { get; set; }
+        public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
+        public DbSet<Pedido> Pedido { get; set; }   
+        public DbSet<PedidoDetalhe> PedidoDetalhe { get; set; } 
+
+    }
+}
